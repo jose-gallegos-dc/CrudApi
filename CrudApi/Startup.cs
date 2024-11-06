@@ -86,7 +86,7 @@ public class Startup
             });
         });
 
-        var connectionString = _configuration.GetConnectionString("DefaultConnection");
+        var connectionString = _configuration.GetConnectionString("DefaultConnectionPepe");
 
         services.AddScoped<IRepositorioBase>(sp => new RepositorioBase(connectionString));
         services.AddScoped<IUsuarioService>(sp => new UsuarioService(sp.GetRequiredService<IRepositorioBase>(), connectionString));
