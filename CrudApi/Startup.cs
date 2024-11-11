@@ -1,5 +1,6 @@
 ﻿using CrudApi.Filters;
 using CrudApi.Services;
+using CrudApi.Services.Catalogos.Proveedores;
 using CrudApi.Services.Catalogos.TiposDePago;
 using CrudApi.Services.Usuarios;
 using EfiWebDLL.Conexion;
@@ -91,6 +92,7 @@ public class Startup
         services.AddScoped<IRepositorioBase>(sp => new RepositorioBase(connectionString));
         services.AddScoped<IUsuarioService>(sp => new UsuarioService(sp.GetRequiredService<IRepositorioBase>(), connectionString));
         services.AddScoped<ITiposDePagoService>(sp => new TiposDePagoService(sp.GetRequiredService<IRepositorioBase>(), connectionString));
+        services.AddScoped<IProveedoresService>(sp => new ProveedoresService(sp.GetRequiredService<IRepositorioBase>(), connectionString));
         services.AddScoped<IJwtService, JwtService>();
     }
 
