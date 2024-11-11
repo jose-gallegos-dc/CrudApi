@@ -2,21 +2,30 @@
 
 namespace CrudApi.DTOs.Catalogos
 {
-    public class ProveedoresRequest
+    public class InsertarProveedoresRequest
     {
-        public string Proveedor { get; set; }
+        public string NombreProveedor { get; set; }
+        public string RazonSocial { get; set; }
+        public string Estado { get; set; }
+        public string Municipio { get; set; }
+        public string Celular { get; set; }
     }
+
 
     public class ActualizarProveedoresRequest
     {
-        public string Proveedor { get; set; }
+        public string NombreProveedor { get; set; }
+        public string RazonSocial { get; set; }
+        public string Estado { get; set; }
+        public string Municipio { get; set; }
+        public string Celular { get; set; }
     }
 
     public class ProveedoresResponse
     {
         public int ProveedorID { get; set; }
         public string NombreProveedor { get; set; }
-        public string Razonsocial { get; set; }
+        public string RazonSocial { get; set; }
         public string Estado { get; set; }
         public string Municipio { get; set; }
         public string Celular { get; set; }
