@@ -30,6 +30,20 @@ public class Startup
             options.SuppressModelStateInvalidFilter = true;
         });
 
+        // Definir la política CORS
+        services.AddCors(options =>
+        {
+            options.AddPolicy("ReactAppPolicy",
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:5173") // La URL donde corre la aplicación React
+                           .AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowCredentials();
+                });
+        });
+
+
         services.AddControllers(options =>
         {
             options.Filters.Add(typeof(ValidationFilter));
@@ -112,6 +126,9 @@ public class Startup
 
         app.UseHttpsRedirection();
         app.UseRouting();
+
+        // Activa la política de CORS definida.
+        app.UseCors("ReactAppPolicy");
 
         app.UseAuthentication();
         app.UseAuthorization();
